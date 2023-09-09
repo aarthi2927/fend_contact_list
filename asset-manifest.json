@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/fend_contact_list/static/css/main.5e3f4565.css",
+    "main.js": "/fend_contact_list/static/js/main.e145c345.js",
+    "index.html": "/fend_contact_list/index.html",
+    "main.5e3f4565.css.map": "/fend_contact_list/static/css/main.5e3f4565.css.map",
+    "main.e145c345.js.map": "/fend_contact_list/static/js/main.e145c345.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5e3f4565.css",
+    "static/js/main.e145c345.js"
+  ]
+}
