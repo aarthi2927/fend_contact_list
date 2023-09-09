@@ -6,7 +6,6 @@ import Table from "./components/table";
 function App() {
   return(
    <div className="App">
-
       <Routes>
        <Route path="/contact/view" element={<Table/>}/>
       </Routes>
