@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+display: flex;
+justify-content: center;
+margin-top: 55px;
+}
+ 
+table,tr,th,td{
+border:1px solid rgb(8, 8, 8);
+border-collapse: collapse;
+padding: 10px;
+text-align: center;
+}
+th,td{
+    font-size: larger;
+
+}
+td{
+    text-align:left;
+}
