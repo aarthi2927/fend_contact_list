@@ -18,3 +18,8 @@ th,td{
 td{
     text-align:left;
 }
+
+input{
+  width: 100%;
+ padding:5%;
+}

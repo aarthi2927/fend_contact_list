@@ -1,13 +1,16 @@
+import { useNavigate } from 'react-router-dom';
 import '../App.css';
-function Data({name,email,age,id}) {
+function Data({name,email,age,id,deletebutton}) {
+ console.log(name,email,age,id);
+ const nav=useNavigate(); 
     return (
       <tbody >
       <tr key={id}>
         <td>{name}</td>
          <td>{age}</td>
          <td>{email}</td>
-         <td><button>Edit</button></td>
-         <td><button>Delete</button></td>
+         <td><button onClick={()=>{nav(`/contact/${id}`)}}>Edit</button></td>
+         <td>{deletebutton}</td>
          </tr>
            </tbody>
     

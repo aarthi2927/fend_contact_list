@@ -3,9 +3,9 @@ function TableHeader() {
     return (
 <thead>
     <th>Name</th>
-    <th>Email id</th>
     <th>Age</th>
-    <th colSpan={2}>Edit / Delete</th>
+    <th>Email id</th>
+  <th colSpan={2}>Edit / Delete</th>
    </thead> 
      
     );
