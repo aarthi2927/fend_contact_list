@@ -1,25 +1,34 @@
 import { useEffect, useState } from 'react';
 import '../App.css';
-
 import Data from './data';
 import TableHeader from './tablehead';
 import { useNavigate } from 'react-router-dom';
-
-function Table() {
+import { mockapi } from '../mockapi';
+export default function Table() {
   const nav=useNavigate();
+  const apiurl='/contact/view';
+  
   const [datalist,setdatalist]=useState([]);
-    const getdatadetails=async()=>{
-        return  await fetch(`/contact/view`)
-           .then((res)=>res.json())
-           .then((d1)=>setdatalist(d1));
+async function getdata(){
+    try  {
+        const response = await fetch(mockapi+apiurl)
+        if (response.ok) {
+          const jsonData = await response.json();
+          setdatalist(jsonData);
+        } else {
+          console.error('Failed to fetch data:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
     }
-           useEffect(()=>{getdatadetails();
-     },[])
-   
-     const deleteitem=(_id)=>{
-      fetch(`/contact/${_id}`,{
+ 
+  useEffect(()=>{getdata()},[]);
+  
+  const deleteitem=(_id)=>{
+      fetch(`https://contactlist-bxgk.onrender.com/contact/${_id}`,{
         method:"DELETE",
-      }).then(()=>getdatadetails());
+      }).then(()=>getdata());
      }
     return (
       <div> {datalist ?
@@ -36,6 +45,5 @@ deletebutton={<button onClick={()=>deleteitem(d1._id)}>Delete</button>}
 })}
  </table> </div>: <h1>Loading</h1> }
  </div>
-    );
+    )
   }
-  export default Table;

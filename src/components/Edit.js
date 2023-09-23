@@ -8,7 +8,7 @@ export default function Edit(){
     console.log(id);
     const [data1,setdata1]=useState(null);
     const getdetail=()=>{
-       fetch(`/contact/${id}`,{
+       fetch(`https://contactlist-bxgk.onrender.com/contact/${id}`,{
         method:'GET'})
            .then((res)=>res.json())
            .then((d1)=>setdata1(d1))
@@ -34,17 +34,15 @@ const editdata=()=>{
     const editdata1={
         name:name,email:email,age:age
     };
-    fetch(`/contact/${id}`,{
+    fetch(`https://contactlist-bxgk.onrender.com/contact/${id}`,{
         method:'PUT',body:JSON.stringify(editdata1),
         headers:{'Content-type':"application/json"}
         })
     .then((res)=>res.json())
     .then((resp)=>{
-        console.log(resp)
-       
-    })
+    console.log(resp)
+       })
 history("/contact/view");
-
 console.log(editdata1)
 }
 return(
