@@ -9,16 +9,30 @@ const [age,setage]=useState("");
 const [email,setEmail]=useState("");
 const nav=useNavigate();
 
-const Adddata=()=>{
+const Adddata=async(e)=>{
+    e.preventDefault();
     const newdata={
         name:name,email:email,age:age
     };
-    fetch(`https://contactlist-bxgk.onrender.com/contact/add`,{
-        method:'POST',body:JSON.stringify(newdata),
-        headers:{'Content-type':"application/json"}
-    })
-setdatalist([...datalist,newdata])
-nav("/contact/view");
+    try {
+        const res=await fetch(`https://contactlist-bxgk.onrender.com/contact/add`,{
+            method:'POST',body:JSON.stringify(newdata),
+            headers:{'Content-type':"application/json"}
+        })
+        if (res.ok) {
+            // Data was successfully added, update the data list
+            setdatalist([...datalist, newdata]);
+            
+            // Navigate to the '/contact/view' route
+            nav('/contact/view');
+          } else {
+            console.error('Failed to add data:', res.statusText);
+          }
+        } catch (error) {
+          console.error('Error:', error);
+        }
+ 
+
 }
 
 return(
